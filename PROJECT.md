@@ -32,6 +32,9 @@ The tagline may be visually refined later, but do not invent a new business clai
 **WhatsApp URL:**
 https://wa.me/6282115921736
 
+**Official Email:**
+kristiseptia99@gmail.com
+
 **Language:**
 Bahasa Indonesia only.
 

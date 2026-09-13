@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { siteConfig, mainServices } from "@/config/site";
 import { Container } from "./container";
-import { MessageCircle, Phone, MapPin, Clock } from "lucide-react";
+import { MessageCircle, Phone, MapPin, Clock, Mail } from "lucide-react";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -93,6 +93,14 @@ export function Footer() {
                 <Phone className="h-4 w-4 text-slate-400 shrink-0" />
                 <span>{siteConfig.contact.phone}</span>
               </div>
+
+              <a
+                href={`mailto:${siteConfig.contact.email}`}
+                className="flex items-center gap-2 text-xs text-slate-400 hover:text-white transition-colors"
+              >
+                <Mail className="h-4 w-4 text-slate-400 shrink-0" />
+                <span>{siteConfig.contact.email}</span>
+              </a>
 
               <div className="flex items-start gap-2 text-xs text-slate-400">
                 <MapPin className="h-4 w-4 text-sky-400 shrink-0 mt-0.5" />

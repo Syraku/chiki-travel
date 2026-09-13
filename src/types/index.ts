@@ -33,6 +33,7 @@ export interface SiteConfig {
     phone: string;
     whatsappNumber: string;
     whatsappUrl: string;
+    email: string;
   };
   navItems: NavItem[];
   routes: RouteOption[];

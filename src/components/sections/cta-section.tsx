@@ -1,6 +1,6 @@
 import { siteConfig, buildGeneralWhatsAppUrl } from "@/config/site";
 import { Container } from "@/components/layout/container";
-import { MessageCircle, Phone, Clock, Shield } from "lucide-react";
+import { MessageCircle, Phone, Clock, Shield, Mail } from "lucide-react";
 
 export function CtaSection() {
   const whatsappUrl = buildGeneralWhatsAppUrl(
@@ -45,6 +45,16 @@ export function CtaSection() {
             >
               <Phone className="h-4 w-4" />
               <span>Hubungi Telepon</span>
+            </a>
+          </div>
+
+          <div className="mt-5 flex items-center justify-center">
+            <a
+              href={`mailto:${siteConfig.contact.email}`}
+              className="inline-flex items-center gap-2 text-xs sm:text-sm text-sky-200 hover:text-white transition-colors"
+            >
+              <Mail className="h-4 w-4 text-sky-300" />
+              <span>Email: {siteConfig.contact.email}</span>
             </a>
           </div>
 

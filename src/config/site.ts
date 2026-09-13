@@ -11,6 +11,7 @@ export const siteConfig: SiteConfig = {
     phone: "0821-1592-1736",
     whatsappNumber: "082115921736",
     whatsappUrl: "https://wa.me/6282115921736",
+    email: "kristiseptia99@gmail.com",
   },
   navItems: [
     { label: "Beranda", href: "#beranda" },
