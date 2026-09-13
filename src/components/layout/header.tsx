@@ -1,54 +1,128 @@
+"use client";
+
+import * as React from "react";
 import Link from "next/link";
 import { siteConfig } from "@/config/site";
 import { Container } from "./container";
-import { MessageCircle, Phone } from "lucide-react";
+import { MessageCircle, Menu, X, Phone, Compass } from "lucide-react";
 
 export function Header() {
+  const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
+
   return (
-    <header className="sticky top-0 z-40 w-full border-b border-slate-200/80 bg-white/95 backdrop-blur-md">
+    <header className="sticky top-0 z-50 w-full border-b border-slate-200/90 bg-white/95 backdrop-blur-md">
       <Container>
         <div className="flex h-20 items-center justify-between">
-          <Link href="/" className="flex flex-col">
-            <span className="text-2xl font-black tracking-tight text-sky-700">
-              {siteConfig.name}
-            </span>
-            <span className="text-xs font-medium text-slate-500 tracking-wide">
-              {siteConfig.area}
-            </span>
+          {/* Logo & Brand */}
+          <Link
+            href="/"
+            className="flex items-center gap-2.5 group"
+            onClick={() => setMobileMenuOpen(false)}
+          >
+            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-sky-600 text-white shadow-sm transition-transform group-hover:scale-105">
+              <Compass className="h-6 w-6" />
+            </div>
+            <div className="flex flex-col">
+              <span className="text-xl sm:text-2xl font-black tracking-tight text-slate-900 leading-tight">
+                {siteConfig.name}
+              </span>
+              <span className="text-[11px] font-semibold text-sky-700 uppercase tracking-wider">
+                {siteConfig.area}
+              </span>
+            </div>
           </Link>
 
-          <nav className="hidden md:flex items-center gap-8">
+          {/* Desktop Navigation */}
+          <nav className="hidden lg:flex items-center gap-7">
             {siteConfig.navItems.map((item) => (
               <a
                 key={item.href}
                 href={item.href}
-                className="text-sm font-medium text-slate-600 transition-colors hover:text-sky-600"
+                className="text-sm font-semibold text-slate-700 hover:text-sky-600 transition-colors"
               >
                 {item.label}
               </a>
             ))}
           </nav>
 
-          <div className="flex items-center gap-3">
+          {/* Desktop CTA Buttons */}
+          <div className="hidden sm:flex items-center gap-3">
             <a
               href={`tel:${siteConfig.contact.whatsappNumber}`}
-              className="hidden sm:inline-flex items-center gap-1.5 text-xs font-medium text-slate-600 hover:text-sky-600 px-3 py-2"
+              className="hidden xl:inline-flex items-center gap-1.5 text-xs font-semibold text-slate-600 hover:text-sky-600 px-3 py-2"
             >
               <Phone className="h-3.5 w-3.5 text-slate-400" />
-              {siteConfig.contact.phone}
+              <span>{siteConfig.contact.phone}</span>
             </a>
 
             <a
               href={siteConfig.contact.whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-lg bg-emerald-600 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-emerald-700 transition-colors"
+              className="inline-flex items-center gap-2 rounded-xl bg-emerald-600 px-4 py-2.5 text-sm font-bold text-white shadow-sm hover:bg-emerald-700 transition-all hover:shadow"
             >
               <MessageCircle className="h-4 w-4" />
-              <span>WhatsApp</span>
+              <span>Tanya WhatsApp</span>
             </a>
           </div>
+
+          {/* Mobile Menu Button */}
+          <div className="flex items-center gap-2 lg:hidden">
+            <a
+              href={siteConfig.contact.whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Chat WhatsApp"
+              className="inline-flex items-center justify-center h-10 w-10 rounded-xl bg-emerald-600 text-white sm:hidden"
+            >
+              <MessageCircle className="h-5 w-5" />
+            </a>
+
+            <button
+              type="button"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="inline-flex items-center justify-center h-10 w-10 rounded-xl border border-slate-200 text-slate-700 hover:bg-slate-100 transition-colors"
+              aria-label={mobileMenuOpen ? "Tutup menu" : "Buka menu"}
+            >
+              {mobileMenuOpen ? (
+                <X className="h-5 w-5" />
+              ) : (
+                <Menu className="h-5 w-5" />
+              )}
+            </button>
+          </div>
         </div>
+
+        {/* Mobile Dropdown Menu */}
+        {mobileMenuOpen && (
+          <div className="lg:hidden border-t border-slate-200 bg-white py-4 px-2 space-y-2 animate-in fade-in slide-in-from-top-2 duration-150">
+            <nav className="flex flex-col space-y-1">
+              {siteConfig.navItems.map((item) => (
+                <a
+                  key={item.href}
+                  href={item.href}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="rounded-lg px-3 py-2.5 text-sm font-semibold text-slate-700 hover:bg-sky-50 hover:text-sky-600 transition-colors"
+                >
+                  {item.label}
+                </a>
+              ))}
+            </nav>
+
+            <div className="pt-3 mt-2 border-t border-slate-100 flex flex-col gap-2">
+              <a
+                href={siteConfig.contact.whatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setMobileMenuOpen(false)}
+                className="flex items-center justify-center gap-2 rounded-xl bg-emerald-600 py-3 text-sm font-bold text-white shadow-sm hover:bg-emerald-700 transition-colors"
+              >
+                <MessageCircle className="h-4 w-4" />
+                <span>Chat via WhatsApp ({siteConfig.contact.phone})</span>
+              </a>
+            </div>
+          </div>
+        )}
       </Container>
     </header>
   );

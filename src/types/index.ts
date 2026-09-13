@@ -6,8 +6,15 @@ export interface NavItem {
 export interface ServiceItem {
   id: string;
   title: string;
+  shortDesc: string;
   description: string;
   iconName: "car" | "map" | "key" | "users" | "plane";
+  accentColor: string;
+}
+
+export interface RouteOption {
+  origin: string;
+  destinations: string[];
 }
 
 export interface SiteConfig {
@@ -21,4 +28,5 @@ export interface SiteConfig {
     whatsappUrl: string;
   };
   navItems: NavItem[];
+  routes: RouteOption[];
 }

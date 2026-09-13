@@ -1,70 +1,93 @@
 import { Container } from "@/components/layout/container";
 import { siteConfig } from "@/config/site";
-import { CheckCircle2, MessageSquare, Shield, Route } from "lucide-react";
+import {
+  Clock,
+  MessageSquareCheck,
+  ShieldCheck,
+  Layers,
+  MapPin,
+  Check,
+} from "lucide-react";
 
 export function FeaturesSection() {
-  const features = [
+  const advantages = [
     {
-      icon: Route,
-      title: "Rute Cianjur & Sukabumi",
+      icon: Clock,
+      title: "Layanan 24 Jam",
       description:
-        "Melayani rute wilayah Cianjur, Sukabumi, serta perjalanan antar kota dengan rute optimal.",
+        "Siap melayani kebutuhan perjalanan dan konsultasi rute kapan pun untuk rute Cianjur, Sukabumi, dan Jabodetabek.",
     },
     {
-      icon: MessageSquare,
-      title: "Pemesanan Praktis via WhatsApp",
+      icon: MessageSquareCheck,
+      title: "Reservasi Mudah via WhatsApp",
       description:
-        "Konsultasi jadwal, ketersediaan unit, dan detail perjalanan cepat melalui kontak WhatsApp resmi.",
+        "Tanpa prosedur pemesanan yang rumit. Hubungi langsung kontak WhatsApp kami untuk info ketersediaan dan penjemputan.",
     },
     {
-      icon: Shield,
-      title: "Armada Nyaman & Siap Jalan",
+      icon: ShieldCheck,
+      title: "Armada Siap Jalan & Nyaman",
       description:
-        "Kendaraan dicek secara berkala guna memastikan keamanan serta kenyamanan setiap penumpang.",
+        "Kondisi armada selalu diperiksa berkala untuk memastikan keamanan dan kenyamanan penumpang sepanjang rute.",
     },
     {
-      icon: CheckCircle2,
-      title: "Pilihan Layanan Fleksibel",
+      icon: Layers,
+      title: "Pilihan Layanan Terpadu",
       description:
-        "Tersedia sewa kendaraan, travel reguler, paket wisata, maupun perjalanan privat sesuai kebutuhan.",
+        "Melayani travel reguler, rental kendaraan, paket wisata, perjalanan privat hingga antar jemput bandara dalam satu pintu.",
     },
   ];
 
   return (
     <section id="keunggulan" className="py-20 bg-white">
       <Container>
-        <div className="mx-auto max-w-2xl text-center">
-          <h2 className="text-xs font-semibold uppercase tracking-wider text-sky-600">
-            Keunggulan
-          </h2>
-          <p className="mt-2 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
+        <div className="mx-auto max-w-3xl text-center">
+          <div className="inline-flex items-center gap-1.5 rounded-full bg-slate-100 px-3 py-1 text-xs font-bold text-slate-800 uppercase tracking-wider mb-3">
+            <ShieldCheck className="h-3.5 w-3.5 text-sky-600" />
+            Keunggulan Layanan
+          </div>
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-slate-900">
             Kenapa Memilih {siteConfig.name}?
-          </p>
-          <p className="mt-4 text-base text-slate-600">
-            Komitmen kami adalah memberikan pengalaman perjalanan yang aman, tepat waktu, dan mudah diakses.
+          </h2>
+          <p className="mt-3 text-sm sm:text-base text-slate-600 leading-relaxed">
+            Komitmen kami adalah memberikan kemudahan mobilitas antar kota yang aman, tepat waktu, dan mudah diakses setiap saat.
           </p>
         </div>
 
-        <div className="mt-14 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
-          {features.map((feature, index) => {
-            const IconComponent = feature.icon;
+        <div className="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {advantages.map((item, index) => {
+            const IconComponent = item.icon;
             return (
               <div
                 key={index}
-                className="relative rounded-xl border border-slate-100 bg-slate-50/70 p-6 transition-all hover:bg-white hover:shadow-md"
+                className="relative flex flex-col justify-between rounded-2xl border border-slate-200 bg-slate-50/50 p-6 transition-all hover:bg-white hover:shadow-md hover:border-sky-300"
               >
-                <div className="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-lg bg-sky-100 text-sky-700">
-                  <IconComponent className="h-5 w-5" />
+                <div>
+                  <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-sky-100/80 text-sky-700">
+                    <IconComponent className="h-6 w-6" />
+                  </div>
+                  <h3 className="text-base font-bold text-slate-900">
+                    {item.title}
+                  </h3>
+                  <p className="mt-2 text-xs sm:text-sm text-slate-600 leading-relaxed">
+                    {item.description}
+                  </p>
                 </div>
-                <h3 className="text-base font-bold text-slate-900">
-                  {feature.title}
-                </h3>
-                <p className="mt-2 text-sm text-slate-600 leading-relaxed">
-                  {feature.description}
-                </p>
+
+                <div className="mt-4 pt-3 border-t border-slate-200/60 flex items-center gap-1.5 text-xs font-semibold text-emerald-700">
+                  <Check className="h-3.5 w-3.5" />
+                  <span>Layanan Terpercaya</span>
+                </div>
               </div>
             );
           })}
+        </div>
+
+        {/* Reassurance banner */}
+        <div className="mt-12 rounded-xl border border-slate-200 bg-slate-50 p-4 text-center text-xs sm:text-sm text-slate-600 flex flex-col sm:flex-row items-center justify-center gap-2">
+          <MapPin className="h-4 w-4 text-sky-600 shrink-0" />
+          <span>
+            Melayani titik jemput di wilayah <strong>Cianjur, Sukabumi</strong> dan sekitarnya dengan tujuan utama seluruh area <strong>Jabodetabek dan Bandara</strong>.
+          </span>
         </div>
       </Container>
     </section>

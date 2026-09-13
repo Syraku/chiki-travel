@@ -1,0 +1,195 @@
+"use client";
+
+import * as React from "react";
+import { siteConfig, buildRouteWhatsAppUrl } from "@/config/site";
+import { Container } from "@/components/layout/container";
+import {
+  MapPin,
+  ArrowRight,
+  MessageCircle,
+  Car,
+  Plane,
+  Building2,
+  Navigation,
+} from "lucide-react";
+
+export function QuickRouteSection() {
+  const origins = siteConfig.routes.map((r) => r.origin);
+  const [selectedOrigin, setSelectedOrigin] = React.useState<string>(
+    origins[0] || "Cianjur"
+  );
+  const currentRoute = siteConfig.routes.find(
+    (r) => r.origin === selectedOrigin
+  );
+  const destinations = currentRoute ? currentRoute.destinations : [];
+
+  const [selectedDestination, setSelectedDestination] =
+    React.useState<string>("Jakarta");
+
+  const whatsappUrl = buildRouteWhatsAppUrl(
+    selectedOrigin,
+    selectedDestination
+  );
+
+  const getDestinationIcon = (dest: string) => {
+    if (dest.toLowerCase().includes("bandara")) {
+      return <Plane className="h-4 w-4 text-sky-600" />;
+    }
+    if (
+      dest.toLowerCase().includes("jakarta") ||
+      dest.toLowerCase().includes("tangerang")
+    ) {
+      return <Building2 className="h-4 w-4 text-sky-600" />;
+    }
+    return <Car className="h-4 w-4 text-sky-600" />;
+  };
+
+  return (
+    <section id="rute" className="py-16 sm:py-20 bg-white">
+      <Container>
+        <div className="mx-auto max-w-3xl text-center">
+          <div className="inline-flex items-center gap-1.5 rounded-full bg-sky-100 px-3 py-1 text-xs font-bold text-sky-800 uppercase tracking-wider mb-3">
+            <Navigation className="h-3.5 w-3.5" />
+            Cek Rute Perjalanan
+          </div>
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-slate-900">
+            Pilihan Rute Travel & Antar Jemput
+          </h2>
+          <p className="mt-3 text-sm sm:text-base text-slate-600">
+            Temukan rute perjalanan dari Cianjur atau Sukabumi menuju wilayah
+            Jabodetabek dan bandara. Hubungi kami untuk konfirmasi ketersediaan armada.
+          </p>
+        </div>
+
+        {/* Interactive Route Finder Box */}
+        <div className="mt-10 mx-auto max-w-3xl rounded-2xl border border-slate-200 bg-gradient-to-b from-slate-50/80 to-white p-6 sm:p-8 shadow-sm">
+          <div className="space-y-6">
+            {/* Step 1: Choose Origin */}
+            <div>
+              <label className="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-2">
+                1. Pilih Kota Asal:
+              </label>
+              <div className="grid grid-cols-2 gap-3">
+                {origins.map((origin) => {
+                  const isActive = selectedOrigin === origin;
+                  return (
+                    <button
+                      key={origin}
+                      type="button"
+                      onClick={() => {
+                        setSelectedOrigin(origin);
+                        if (!destinations.includes(selectedDestination)) {
+                          setSelectedDestination(destinations[0] || "Jakarta");
+                        }
+                      }}
+                      className={`flex items-center justify-center gap-2 rounded-xl py-3 px-4 text-sm font-bold transition-all ${
+                        isActive
+                          ? "bg-sky-600 text-white shadow-sm ring-2 ring-sky-600/30"
+                          : "bg-white border border-slate-200 text-slate-700 hover:bg-slate-100"
+                      }`}
+                    >
+                      <MapPin className="h-4 w-4" />
+                      <span>{origin}</span>
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+
+            {/* Step 2: Choose Destination */}
+            <div>
+              <label className="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-2">
+                2. Pilih Kota / Lokasi Tujuan:
+              </label>
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5">
+                {destinations.map((dest) => {
+                  const isActive = selectedDestination === dest;
+                  return (
+                    <button
+                      key={dest}
+                      type="button"
+                      onClick={() => setSelectedDestination(dest)}
+                      className={`flex items-center gap-2 rounded-xl p-3 text-xs sm:text-sm font-semibold text-left transition-all ${
+                        isActive
+                          ? "bg-sky-100/80 border border-sky-400 text-sky-900 shadow-xs"
+                          : "bg-white border border-slate-200 text-slate-700 hover:bg-slate-50"
+                      }`}
+                    >
+                      {getDestinationIcon(dest)}
+                      <span>{dest}</span>
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+
+            {/* Step 3: Route Summary & WhatsApp Action */}
+            <div className="pt-4 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4">
+              <div className="flex items-center gap-2 text-slate-900">
+                <span className="font-bold text-base">{selectedOrigin}</span>
+                <ArrowRight className="h-4 w-4 text-sky-600" />
+                <span className="font-bold text-base text-sky-700">
+                  {selectedDestination}
+                </span>
+              </div>
+
+              <a
+                href={whatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl bg-emerald-600 px-6 py-3 text-sm font-bold text-white shadow-sm hover:bg-emerald-700 transition-all"
+              >
+                <MessageCircle className="h-4 w-4" />
+                <span>Tanya Rute Ini via WhatsApp</span>
+              </a>
+            </div>
+
+            <p className="text-[11px] text-slate-500 text-center sm:text-left italic">
+              * Tarif, titik jemput, serta estimasi jam keberangkatan akan dikonfirmasikan langsung melalui WhatsApp sesuai permintaan Anda.
+            </p>
+          </div>
+        </div>
+
+        {/* Quick Grid of all active routes for selected origin */}
+        <div className="mt-12">
+          <h3 className="text-sm font-bold uppercase tracking-wider text-slate-700 mb-4 text-center">
+            Daftar Lengkap Rute dari {selectedOrigin}
+          </h3>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5">
+            {destinations.map((dest) => {
+              const cardUrl = buildRouteWhatsAppUrl(selectedOrigin, dest);
+              return (
+                <div
+                  key={dest}
+                  className="flex items-center justify-between rounded-xl border border-slate-200 bg-white p-4 transition-all hover:border-sky-300 hover:shadow-xs"
+                >
+                  <div className="flex items-center gap-3">
+                    <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-sky-50 text-sky-700">
+                      {getDestinationIcon(dest)}
+                    </div>
+                    <div>
+                      <p className="text-sm font-bold text-slate-900">
+                        {selectedOrigin} → {dest}
+                      </p>
+                      <p className="text-xs text-slate-500">Travel & Antar Jemput</p>
+                    </div>
+                  </div>
+
+                  <a
+                    href={cardUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1 text-xs font-semibold text-emerald-700 hover:text-emerald-800 bg-emerald-50 px-2.5 py-1.5 rounded-lg transition-colors"
+                  >
+                    <span>Pesan</span>
+                    <ArrowRight className="h-3 w-3" />
+                  </a>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </Container>
+    </section>
+  );
+}
