@@ -6,7 +6,7 @@ export const siteConfig: SiteConfig = {
   description:
     "Layanan travel, rental kendaraan, paket wisata, private trip, dan antar jemput bandara profesional untuk area Cianjur, Sukabumi, Jabodetabek, dan sekitarnya.",
   area: "Cianjur, Sukabumi & Jabodetabek",
-  logo: "/images/logo/image-to-image-6aa65731b61053e53fe26262-1-watermarked.png",
+  logo: "/images/logo/wmremove-transformed.png",
   contact: {
     phone: "0821-1592-1736",
     whatsappNumber: "082115921736",
