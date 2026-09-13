@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { siteConfig } from "@/config/site";
 import { Container } from "@/components/layout/container";
 import { Badge } from "@/components/ui/badge";
@@ -22,20 +21,6 @@ export function HeroSection() {
 
       <Container className="relative">
         <div className="mx-auto max-w-4xl text-center">
-          {/* Logo Emblem */}
-          <div className="flex justify-center mb-5">
-            <div className="relative h-20 w-20 sm:h-24 sm:w-24 overflow-hidden rounded-2xl bg-white p-1.5 shadow-sm border border-slate-200/90 ring-4 ring-sky-100/80">
-              <Image
-                src={siteConfig.logo}
-                alt="CHIKI TRAVEL Logo"
-                width={96}
-                height={96}
-                priority
-                className="h-full w-full object-contain"
-              />
-            </div>
-          </div>
-
           {/* Badge: Tagline & 24 Jam */}
           <div className="inline-flex flex-wrap items-center justify-center gap-2 mb-6">
             <Badge className="bg-amber-100 text-amber-900 border-amber-300 font-semibold px-3 py-1 text-xs">
