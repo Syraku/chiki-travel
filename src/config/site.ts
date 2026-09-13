@@ -1,4 +1,4 @@
-import { SiteConfig, ServiceItem } from "@/types";
+import { SiteConfig, ServiceItem, FleetItem } from "@/types";
 
 export const siteConfig: SiteConfig = {
   name: "CHIKI TRAVEL",
@@ -6,6 +6,7 @@ export const siteConfig: SiteConfig = {
   description:
     "Layanan travel, rental kendaraan, paket wisata, private trip, dan antar jemput bandara profesional untuk area Cianjur, Sukabumi, Jabodetabek, dan sekitarnya.",
   area: "Cianjur, Sukabumi & Jabodetabek",
+  logo: "/images/logo/image-to-image-6aa65731b61053e53fe26262-1-watermarked.png",
   contact: {
     phone: "0821-1592-1736",
     whatsappNumber: "082115921736",
@@ -15,6 +16,7 @@ export const siteConfig: SiteConfig = {
     { label: "Beranda", href: "#beranda" },
     { label: "Cek Rute", href: "#rute" },
     { label: "Layanan", href: "#layanan" },
+    { label: "Armada", href: "#armada" },
     { label: "Paket Wisata", href: "#paket-wisata" },
     { label: "Destinasi", href: "#destinasi" },
     { label: "Keunggulan", href: "#keunggulan" },
@@ -94,6 +96,39 @@ export const mainServices: ServiceItem[] = [
   },
 ];
 
+export const fleetList: FleetItem[] = [
+  {
+    id: "kijang",
+    name: "Kijang",
+    image: "/images/fleet/Kijang.jpg",
+  },
+  {
+    id: "hiace",
+    name: "HiAce",
+    image: "/images/fleet/HiAce.jpeg",
+  },
+  {
+    id: "sigra",
+    name: "Sigra",
+    image: "/images/fleet/Sigra.jpg",
+  },
+  {
+    id: "xenia",
+    name: "Xenia",
+    image: "/images/fleet/Xenia.jpg",
+  },
+  {
+    id: "pajero",
+    name: "Pajero",
+    image: "/images/fleet/Pajero.webp",
+  },
+  {
+    id: "elf-long-giga",
+    name: "Elf Long Giga",
+    image: "/images/fleet/ElfLongGiga.jpeg",
+  },
+];
+
 export function buildRouteWhatsAppUrl(origin: string, destination: string): string {
   const text = `Halo CHIKI TRAVEL, tolong info layanan travel dari ${origin} ke ${destination}.`;
   return `https://wa.me/6282115921736?text=${encodeURIComponent(text)}`;
@@ -101,6 +136,11 @@ export function buildRouteWhatsAppUrl(origin: string, destination: string): stri
 
 export function buildServiceWhatsAppUrl(serviceTitle: string): string {
   const text = `Halo CHIKI TRAVEL, saya ingin menanyakan informasi layanan ${serviceTitle}.`;
+  return `https://wa.me/6282115921736?text=${encodeURIComponent(text)}`;
+}
+
+export function buildFleetWhatsAppUrl(vehicleName: string): string {
+  const text = `Halo CHIKI TRAVEL, saya ingin menanyakan ketersediaan armada ${vehicleName} untuk perjalanan saya.`;
   return `https://wa.me/6282115921736?text=${encodeURIComponent(text)}`;
 }
 

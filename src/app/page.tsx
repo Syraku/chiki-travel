@@ -1,6 +1,7 @@
 import { HeroSection } from "@/components/sections/hero-section";
 import { QuickRouteSection } from "@/components/sections/quick-route-section";
 import { ServicesSection } from "@/components/sections/services-section";
+import { FleetSection } from "@/components/sections/fleet-section";
 import { PackagesPreviewSection } from "@/components/sections/packages-preview-section";
 import { DestinationsPreviewSection } from "@/components/sections/destinations-preview-section";
 import { FeaturesSection } from "@/components/sections/features-section";
@@ -13,6 +14,7 @@ export default function HomePage() {
       <HeroSection />
       <QuickRouteSection />
       <ServicesSection />
+      <FleetSection />
       <PackagesPreviewSection />
       <DestinationsPreviewSection />
       <FeaturesSection />

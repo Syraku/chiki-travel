@@ -2,9 +2,10 @@
 
 import * as React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { siteConfig } from "@/config/site";
 import { Container } from "./container";
-import { MessageCircle, Menu, X, Phone, Compass } from "lucide-react";
+import { MessageCircle, Menu, X, Phone } from "lucide-react";
 
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
@@ -16,11 +17,18 @@ export function Header() {
           {/* Logo & Brand */}
           <Link
             href="/"
-            className="flex items-center gap-2.5 group"
+            className="flex items-center gap-3 group"
             onClick={() => setMobileMenuOpen(false)}
           >
-            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-sky-600 text-white shadow-sm transition-transform group-hover:scale-105">
-              <Compass className="h-6 w-6" />
+            <div className="relative h-12 w-12 overflow-hidden rounded-xl bg-white border border-slate-200/90 shadow-xs transition-transform group-hover:scale-105 shrink-0">
+              <Image
+                src={siteConfig.logo}
+                alt="CHIKI TRAVEL Logo"
+                width={48}
+                height={48}
+                priority
+                className="h-full w-full object-contain p-1"
+              />
             </div>
             <div className="flex flex-col">
               <span className="text-xl sm:text-2xl font-black tracking-tight text-slate-900 leading-tight">

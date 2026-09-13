@@ -1,6 +1,7 @@
+import Image from "next/image";
 import { siteConfig, mainServices } from "@/config/site";
 import { Container } from "./container";
-import { MessageCircle, Phone, MapPin, Compass, Clock } from "lucide-react";
+import { MessageCircle, Phone, MapPin, Clock } from "lucide-react";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -14,9 +15,15 @@ export function Footer() {
         <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-4">
           {/* Brand Col */}
           <div className="space-y-4">
-            <div className="flex items-center gap-2">
-              <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-sky-600 text-white">
-                <Compass className="h-5 w-5" />
+            <div className="flex items-center gap-3">
+              <div className="relative h-11 w-11 overflow-hidden rounded-xl bg-white border border-slate-700 shrink-0">
+                <Image
+                  src={siteConfig.logo}
+                  alt="CHIKI TRAVEL Logo"
+                  width={44}
+                  height={44}
+                  className="h-full w-full object-contain p-0.5"
+                />
               </div>
               <h3 className="text-xl font-bold tracking-tight text-white">
                 {siteConfig.name}

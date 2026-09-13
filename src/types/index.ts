@@ -17,11 +17,18 @@ export interface RouteOption {
   destinations: string[];
 }
 
+export interface FleetItem {
+  id: string;
+  name: string;
+  image: string;
+}
+
 export interface SiteConfig {
   name: string;
   tagline: string;
   description: string;
   area: string;
+  logo: string;
   contact: {
     phone: string;
     whatsappNumber: string;

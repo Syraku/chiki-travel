@@ -637,9 +637,9 @@ A feature is considered complete when:
 ## 27. Current TODO
 
 * [ ] Finalize visual design
-* [ ] Add real CHIKI TRAVEL logo
-* [ ] Add real photography
-* [ ] Build polished homepage
+* [x] Add real CHIKI TRAVEL logo
+* [x] Add real photography
+* [x] Build polished homepage
 * [ ] Build route pages
 * [ ] Build package pages
 * [ ] Build rental pages
