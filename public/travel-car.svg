@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 460" role="img" aria-label="Ilustrasi mobil travel CHIKI TRAVEL">
+  <defs><linearGradient id="g" x1="0" x2="1"><stop stop-color="#991b1b"/><stop offset="1" stop-color="#ef4444"/></linearGradient></defs>
+  <rect width="800" height="460" rx="36" fill="#f8fafc"/>
+  <ellipse cx="400" cy="390" rx="285" ry="25" fill="#cbd5e1" opacity=".55"/>
+  <path d="M135 315h35l35-105c8-24 30-40 55-40h245c27 0 51 15 62 39l45 106h35c15 0 27 12 27 27v25c0 12-10 22-22 22h-35a55 55 0 0 1-108 0H291a55 55 0 0 1-108 0h-48c-12 0-22-10-22-22v-25c0-15 10-27 22-27z" fill="white" stroke="#991b1b" stroke-width="10"/>
+  <path d="M236 196h250c17 0 32 10 39 25l25 54H210l22-54c5-15 19-25 36-25z" fill="#cbd5e1"/>
+  <path d="M252 205h104v58H228l18-43c1-7 3-11 6-15zm116 0h108c11 0 21 7 26 17l19 41H368v-58z" fill="#e2e8f0" stroke="#94a3b8" stroke-width="3"/>
+  <path d="M112 302h576v25H112z" fill="url(#g)"/>
+  <circle cx="237" cy="365" r="45" fill="#1e293b"/><circle cx="237" cy="365" r="20" fill="#94a3b8"/>
+  <circle cx="566" cy="365" r="45" fill="#1e293b"/><circle cx="566" cy="365" r="20" fill="#94a3b8"/>
+  <rect x="665" y="285" width="45" height="28" rx="8" fill="#fecaca"/>
+  <rect x="128" y="285" width="38" height="28" rx="8" fill="#fde68a"/>
+  <text x="400" y="355" text-anchor="middle" font-family="Arial,sans-serif" font-size="25" font-weight="700" fill="#991b1b">CHIKI TRAVEL</text>
+</svg>
