@@ -11,8 +11,8 @@ export function Footer() {
       id="kontak"
       className="border-t border-slate-200 bg-slate-900 text-slate-300"
     >
-      <Container className="py-16">
-        <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-4">
+      <Container className="py-12 sm:py-16">
+        <div className="grid grid-cols-1 gap-8 sm:gap-10 md:grid-cols-2 lg:grid-cols-4">
           {/* Brand Col */}
           <div className="space-y-4">
             <div className="flex items-center gap-3">
@@ -67,14 +67,14 @@ export function Footer() {
               <p className="font-semibold text-slate-300 pt-1">Kota Tujuan:</p>
               <p>Bandara, Tangerang, Jakarta, Bekasi, Depok, Bogor</p>
               <div className="flex items-center gap-1.5 text-amber-300 pt-2">
-                <Clock className="h-3.5 w-3.5" />
+                <Clock className="h-3.5 w-3.5 shrink-0" />
                 <span>Pelayanan 24 Jam</span>
               </div>
             </div>
           </div>
 
           {/* Contact Col */}
-          <div className="space-y-4">
+          <div className="space-y-4 min-w-0">
             <h4 className="text-xs font-bold uppercase tracking-wider text-white">
               Kontak Resmi
             </h4>
@@ -85,21 +85,21 @@ export function Footer() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 rounded-xl bg-emerald-600 px-4 py-2.5 text-xs sm:text-sm font-bold text-white hover:bg-emerald-500 transition-colors w-full justify-center shadow-sm"
               >
-                <MessageCircle className="h-4 w-4" />
+                <MessageCircle className="h-4 w-4 shrink-0" />
                 <span>Chat WhatsApp Resmi</span>
               </a>
 
-              <div className="flex items-center gap-2 text-xs text-slate-400">
+              <div className="flex items-center gap-2 text-xs text-slate-400 min-w-0">
                 <Phone className="h-4 w-4 text-slate-400 shrink-0" />
-                <span>{siteConfig.contact.phone}</span>
+                <span className="break-all">{siteConfig.contact.phone}</span>
               </div>
 
               <a
                 href={`mailto:${siteConfig.contact.email}`}
-                className="flex items-center gap-2 text-xs text-slate-400 hover:text-white transition-colors"
+                className="flex items-start gap-2 text-xs text-slate-400 hover:text-white transition-colors min-w-0"
               >
-                <Mail className="h-4 w-4 text-slate-400 shrink-0" />
-                <span>{siteConfig.contact.email}</span>
+                <Mail className="h-4 w-4 text-slate-400 shrink-0 mt-0.5" />
+                <span className="break-all">{siteConfig.contact.email}</span>
               </a>
 
               <div className="flex items-start gap-2 text-xs text-slate-400">
@@ -110,7 +110,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 border-t border-slate-800 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left text-xs text-slate-500">
+        <div className="mt-10 sm:mt-12 border-t border-slate-800 pt-6 sm:pt-8 flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4 text-center sm:text-left text-xs text-slate-500">
           <p>
             © {currentYear} {siteConfig.name}. Seluruh hak cipta dilindungi.
           </p>
