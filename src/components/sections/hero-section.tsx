@@ -14,7 +14,7 @@ export function HeroSection() {
   return (
     <section
       id="beranda"
-      className="relative overflow-hidden bg-gradient-to-b from-stone-50 via-white to-stone-50/40 pt-12 pb-16 sm:pt-20 sm:pb-24"
+      className="relative overflow-hidden bg-gradient-to-b from-stone-50 via-white to-stone-50/40 pt-10 pb-12 sm:pt-20 sm:pb-24"
     >
       {/* Subtle decorative background pattern */}
       <div className="absolute inset-0 bg-[radial-gradient(#dc2626_1px,transparent_1px)] [background-size:24px_24px] opacity-[0.07] pointer-events-none" />
@@ -22,7 +22,7 @@ export function HeroSection() {
       <Container className="relative">
         <div className="mx-auto max-w-4xl text-center">
           {/* Badge: Tagline & 24 Jam */}
-          <div className="inline-flex flex-wrap items-center justify-center gap-2 mb-6">
+          <div className="inline-flex max-w-full flex-wrap items-center justify-center gap-2 mb-5 sm:mb-6">
             <Badge variant="amber" className="font-semibold px-3 py-1 text-xs">
               <Clock className="mr-1.5 h-3.5 w-3.5 text-amber-600 inline" />
               Layanan 24 Jam
@@ -34,7 +34,7 @@ export function HeroSection() {
           </div>
 
           {/* Heading */}
-          <h1 className="text-3xl font-extrabold tracking-tight text-slate-900 sm:text-5xl lg:text-6xl sm:leading-tight">
+          <h1 className="text-2xl font-extrabold tracking-tight text-slate-900 sm:text-5xl lg:text-6xl sm:leading-tight">
             Perjalanan Aman & Nyaman Bersama{" "}
             <span className="text-red-600 block sm:inline">
               {siteConfig.name}
@@ -42,25 +42,25 @@ export function HeroSection() {
           </h1>
 
           {/* Tagline citation & description */}
-          <p className="mt-4 text-base font-semibold text-red-700 sm:text-lg">
+          <p className="mt-3 sm:mt-4 text-base font-semibold text-red-700 sm:text-lg">
             &ldquo;{siteConfig.tagline}&rdquo;
           </p>
 
-          <p className="mt-4 max-w-2xl mx-auto text-sm sm:text-base leading-relaxed text-slate-600">
+          <p className="mt-3 sm:mt-4 max-w-2xl mx-auto text-sm sm:text-base leading-relaxed text-slate-600">
             Layanan transportasi antar kota Cianjur, Sukabumi, dan Jabodetabek.
             Melayani travel reguler, antar jemput bandara, sewa kendaraan, private trip,
             hingga agenda wisata keluarga dan instansi dengan kemudahan reservasi via WhatsApp.
           </p>
 
           {/* CTAs */}
-          <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3.5">
+          <div className="mt-7 sm:mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
             <a
               href={siteConfig.contact.whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2.5 w-full sm:w-auto rounded-xl bg-emerald-600 px-8 py-3.5 text-base font-bold text-white shadow-md hover:bg-emerald-700 transition-all active:scale-[0.99]"
+              className="inline-flex items-center justify-center gap-2.5 w-full sm:w-auto rounded-xl bg-emerald-600 px-7 sm:px-8 py-3.5 text-base font-bold text-white shadow-md hover:bg-emerald-700 transition-all active:scale-[0.99]"
             >
-              <MessageCircle className="h-5 w-5" />
+              <MessageCircle className="h-5 w-5 shrink-0" />
               <span>Tanya via WhatsApp</span>
             </a>
 
@@ -68,57 +68,57 @@ export function HeroSection() {
               href="#rute"
               className="inline-flex items-center justify-center gap-2 w-full sm:w-auto rounded-xl border border-slate-300 bg-white px-7 py-3.5 text-base font-semibold text-slate-700 shadow-sm hover:bg-slate-50 hover:border-red-200 hover:text-red-700 transition-all"
             >
-              <Car className="h-4 w-4 text-red-600" />
+              <Car className="h-4 w-4 text-red-600 shrink-0" />
               <span>Cek Rute Tersedia</span>
             </a>
           </div>
 
           {/* Highlight feature bar */}
-          <div className="mt-12 grid grid-cols-2 gap-3 sm:grid-cols-4 sm:gap-4 text-left">
-            <div className="rounded-xl border border-slate-200/80 bg-white/90 p-4 shadow-sm hover:border-red-200 transition-colors">
+          <div className="mt-10 sm:mt-12 grid grid-cols-2 gap-2.5 sm:grid-cols-4 sm:gap-4 text-left">
+            <div className="min-w-0 rounded-xl border border-slate-200/80 bg-white/90 p-3 sm:p-4 shadow-sm hover:border-red-200 transition-colors">
               <div className="flex items-center gap-2 text-red-600 mb-1">
-                <Car className="h-4 w-4" />
-                <span className="text-xs font-bold uppercase tracking-wider">
+                <Car className="h-4 w-4 shrink-0" />
+                <span className="text-[11px] sm:text-xs font-bold uppercase tracking-wider">
                   Travel Rutin
                 </span>
               </div>
-              <p className="text-xs text-slate-600 leading-snug">
+              <p className="text-[11px] sm:text-xs text-slate-600 leading-snug">
                 Jadwal harian Cianjur & Sukabumi ke Jabodetabek.
               </p>
             </div>
 
-            <div className="rounded-xl border border-slate-200/80 bg-white/90 p-4 shadow-sm hover:border-red-200 transition-colors">
+            <div className="min-w-0 rounded-xl border border-slate-200/80 bg-white/90 p-3 sm:p-4 shadow-sm hover:border-red-200 transition-colors">
               <div className="flex items-center gap-2 text-red-600 mb-1">
-                <Plane className="h-4 w-4" />
-                <span className="text-xs font-bold uppercase tracking-wider">
+                <Plane className="h-4 w-4 shrink-0" />
+                <span className="text-[11px] sm:text-xs font-bold uppercase tracking-wider">
                   Antar Bandara
                 </span>
               </div>
-              <p className="text-xs text-slate-600 leading-snug">
+              <p className="text-[11px] sm:text-xs text-slate-600 leading-snug">
                 Antar & jemput tepat waktu langsung ke terminal penerbangan.
               </p>
             </div>
 
-            <div className="rounded-xl border border-slate-200/80 bg-white/90 p-4 shadow-sm hover:border-amber-200 transition-colors">
+            <div className="min-w-0 rounded-xl border border-slate-200/80 bg-white/90 p-3 sm:p-4 shadow-sm hover:border-amber-200 transition-colors">
               <div className="flex items-center gap-2 text-amber-600 mb-1">
-                <CalendarCheck className="h-4 w-4" />
-                <span className="text-xs font-bold uppercase tracking-wider">
+                <CalendarCheck className="h-4 w-4 shrink-0" />
+                <span className="text-[11px] sm:text-xs font-bold uppercase tracking-wider">
                   Sewa & Trip
                 </span>
               </div>
-              <p className="text-xs text-slate-600 leading-snug">
+              <p className="text-[11px] sm:text-xs text-slate-600 leading-snug">
                 Pilihan rental harian & private trip fleksibel keluarga.
               </p>
             </div>
 
-            <div className="rounded-xl border border-slate-200/80 bg-white/90 p-4 shadow-sm hover:border-emerald-200 transition-colors">
+            <div className="min-w-0 rounded-xl border border-slate-200/80 bg-white/90 p-3 sm:p-4 shadow-sm hover:border-emerald-200 transition-colors">
               <div className="flex items-center gap-2 text-emerald-700 mb-1">
-                <Clock className="h-4 w-4" />
-                <span className="text-xs font-bold uppercase tracking-wider">
+                <Clock className="h-4 w-4 shrink-0" />
+                <span className="text-[11px] sm:text-xs font-bold uppercase tracking-wider">
                   24 Jam Siap
                 </span>
               </div>
-              <p className="text-xs text-slate-600 leading-snug">
+              <p className="text-[11px] sm:text-xs text-slate-600 leading-snug">
                 Konsultasi armada dan jadwal kapan pun melalui WhatsApp.
               </p>
             </div>
