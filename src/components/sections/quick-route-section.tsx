@@ -3,6 +3,7 @@
 import * as React from "react";
 import { siteConfig, buildRouteWhatsAppUrl } from "@/config/site";
 import { Container } from "@/components/layout/container";
+import { Badge } from "@/components/ui/badge";
 import {
   MapPin,
   ArrowRight,
@@ -33,25 +34,25 @@ export function QuickRouteSection() {
 
   const getDestinationIcon = (dest: string) => {
     if (dest.toLowerCase().includes("bandara")) {
-      return <Plane className="h-4 w-4 text-sky-600" />;
+      return <Plane className="h-4 w-4 text-red-600" />;
     }
     if (
       dest.toLowerCase().includes("jakarta") ||
       dest.toLowerCase().includes("tangerang")
     ) {
-      return <Building2 className="h-4 w-4 text-sky-600" />;
+      return <Building2 className="h-4 w-4 text-red-600" />;
     }
-    return <Car className="h-4 w-4 text-sky-600" />;
+    return <Car className="h-4 w-4 text-red-600" />;
   };
 
   return (
     <section id="rute" className="py-16 sm:py-20 bg-white">
       <Container>
         <div className="mx-auto max-w-3xl text-center">
-          <div className="inline-flex items-center gap-1.5 rounded-full bg-sky-100 px-3 py-1 text-xs font-bold text-sky-800 uppercase tracking-wider mb-3">
-            <Navigation className="h-3.5 w-3.5" />
+          <Badge variant="default" className="inline-flex items-center gap-1.5 px-3.5 py-1 text-xs font-bold uppercase tracking-wider mb-3">
+            <Navigation className="h-3.5 w-3.5 text-red-600" />
             Cek Rute Perjalanan
-          </div>
+          </Badge>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-slate-900">
             Pilihan Rute Travel & Antar Jemput
           </h2>
@@ -84,8 +85,8 @@ export function QuickRouteSection() {
                       }}
                       className={`flex items-center justify-center gap-2 rounded-xl py-3 px-4 text-sm font-bold transition-all ${
                         isActive
-                          ? "bg-sky-600 text-white shadow-sm ring-2 ring-sky-600/30"
-                          : "bg-white border border-slate-200 text-slate-700 hover:bg-slate-100"
+                          ? "bg-gradient-to-b from-red-500 via-red-600 to-red-600 text-white shadow-sm shadow-red-600/25 ring-2 ring-red-600/30 border-t border-red-400/40 active:translate-y-px"
+                          : "bg-white border border-slate-200 text-slate-700 hover:bg-slate-50 hover:border-red-200"
                       }`}
                     >
                       <MapPin className="h-4 w-4" />
@@ -111,8 +112,8 @@ export function QuickRouteSection() {
                       onClick={() => setSelectedDestination(dest)}
                       className={`flex items-center gap-2 rounded-xl p-3 text-xs sm:text-sm font-semibold text-left transition-all ${
                         isActive
-                          ? "bg-sky-100/80 border border-sky-400 text-sky-900 shadow-xs"
-                          : "bg-white border border-slate-200 text-slate-700 hover:bg-slate-50"
+                          ? "bg-gradient-to-b from-white via-red-50 to-red-100/70 border border-red-300 text-red-950 shadow-xs ring-1 ring-red-300/60"
+                          : "bg-white border border-slate-200 text-slate-700 hover:bg-slate-50 hover:border-red-200"
                       }`}
                     >
                       {getDestinationIcon(dest)}
@@ -127,8 +128,8 @@ export function QuickRouteSection() {
             <div className="pt-4 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4">
               <div className="flex items-center gap-2 text-slate-900">
                 <span className="font-bold text-base">{selectedOrigin}</span>
-                <ArrowRight className="h-4 w-4 text-sky-600" />
-                <span className="font-bold text-base text-sky-700">
+                <ArrowRight className="h-4 w-4 text-red-600" />
+                <span className="font-bold text-base text-red-700">
                   {selectedDestination}
                 </span>
               </div>
@@ -161,10 +162,10 @@ export function QuickRouteSection() {
               return (
                 <div
                   key={dest}
-                  className="flex items-center justify-between rounded-xl border border-slate-200 bg-white p-4 transition-all hover:border-sky-300 hover:shadow-xs"
+                  className="flex items-center justify-between rounded-xl border border-slate-200 bg-white p-4 transition-all hover:border-red-300 hover:shadow-xs"
                 >
                   <div className="flex items-center gap-3">
-                    <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-sky-50 text-sky-700">
+                    <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-to-b from-white to-red-50 text-red-600 border border-red-200/60 shadow-xs">
                       {getDestinationIcon(dest)}
                     </div>
                     <div>

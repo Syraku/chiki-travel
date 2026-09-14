@@ -57,7 +57,7 @@ export const mainServices: ServiceItem[] = [
     description:
       "Layanan transportasi antar kota Cianjur, Sukabumi, dan Jabodetabek dengan jadwal teratur dan kenyamanan utama.",
     iconName: "car",
-    accentColor: "blue",
+    accentColor: "red",
   },
   {
     id: "paket-wisata",
@@ -84,7 +84,7 @@ export const mainServices: ServiceItem[] = [
     description:
       "Layanan perjalanan eksklusif tanpa dicampur penumpang lain, jadwal dan rute dapat disesuaikan kebutuhan.",
     iconName: "users",
-    accentColor: "indigo",
+    accentColor: "amber",
   },
   {
     id: "antar-jemput-bandara",
@@ -93,7 +93,7 @@ export const mainServices: ServiceItem[] = [
     description:
       "Penjemputan dan pengantaran bandara dengan estimasi waktu yang terjadwal agar perjalanan Anda bebas khawatir.",
     iconName: "plane",
-    accentColor: "sky",
+    accentColor: "red",
   },
 ];
 

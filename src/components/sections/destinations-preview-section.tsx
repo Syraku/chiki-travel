@@ -36,13 +36,13 @@ export function DestinationsPreviewSection() {
   ];
 
   return (
-    <section id="destinasi" className="py-20 bg-slate-50 border-t border-slate-200/60">
+    <section id="destinasi" className="py-20 bg-stone-50/70 border-t border-stone-200/60">
       <Container>
         <div className="mx-auto max-w-3xl text-center">
-          <div className="inline-flex items-center gap-1.5 rounded-full bg-sky-100 px-3 py-1 text-xs font-bold text-sky-800 uppercase tracking-wider mb-3">
-            <MapPin className="h-3.5 w-3.5" />
+          <Badge variant="default" className="inline-flex items-center gap-1.5 px-3.5 py-1 text-xs font-bold uppercase tracking-wider mb-3">
+            <MapPin className="h-3.5 w-3.5 text-red-600" />
             Cakupan Destinasi
-          </div>
+          </Badge>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-slate-900">
             Wilayah Tujuan Populer
           </h2>
@@ -62,11 +62,11 @@ export function DestinationsPreviewSection() {
             return (
               <div
                 key={index}
-                className="flex flex-col justify-between rounded-2xl border border-slate-200 bg-white p-6 shadow-xs hover:border-sky-300 hover:shadow-md transition-all"
+                className="flex flex-col justify-between rounded-2xl border border-slate-200 bg-white p-6 shadow-xs hover:border-red-300 hover:shadow-md transition-all"
               >
                 <div>
                   <div className="flex items-center justify-between mb-4">
-                    <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-sky-50 text-sky-600 ring-1 ring-sky-200">
+                    <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-b from-white to-red-50 text-red-600 ring-1 ring-red-200/80 shadow-xs">
                       <IconComponent className="h-5 w-5" />
                     </div>
                     <Badge variant="subtle" className="text-[10px] text-slate-500 font-medium">
@@ -77,7 +77,7 @@ export function DestinationsPreviewSection() {
                   <h3 className="text-lg font-bold text-slate-900">
                     {item.title}
                   </h3>
-                  <p className="text-xs font-semibold text-sky-700 mt-1">
+                  <p className="text-xs font-semibold text-red-700 mt-1">
                     {item.focus}
                   </p>
 
@@ -91,13 +91,13 @@ export function DestinationsPreviewSection() {
                     href={destUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center justify-between w-full text-xs sm:text-sm font-semibold text-sky-700 hover:text-sky-800"
+                    className="inline-flex items-center justify-between w-full text-xs sm:text-sm font-semibold text-slate-800 hover:text-red-700 transition-colors group"
                   >
                     <span className="flex items-center gap-1.5">
                       <MessageCircle className="h-3.5 w-3.5 text-emerald-600" />
                       Tanya Transportasi ke Wilayah Ini
                     </span>
-                    <ArrowUpRight className="h-4 w-4" />
+                    <ArrowUpRight className="h-4 w-4 text-slate-400 group-hover:text-red-600 transition-colors" />
                   </a>
                 </div>
               </div>

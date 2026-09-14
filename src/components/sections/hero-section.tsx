@@ -14,21 +14,21 @@ export function HeroSection() {
   return (
     <section
       id="beranda"
-      className="relative overflow-hidden bg-gradient-to-b from-sky-50 via-white to-slate-50/50 pt-12 pb-16 sm:pt-20 sm:pb-24"
+      className="relative overflow-hidden bg-gradient-to-b from-stone-50 via-white to-stone-50/40 pt-12 pb-16 sm:pt-20 sm:pb-24"
     >
       {/* Subtle decorative background pattern */}
-      <div className="absolute inset-0 bg-[radial-gradient(#0284c7_1px,transparent_1px)] [background-size:24px_24px] opacity-10 pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(#dc2626_1px,transparent_1px)] [background-size:24px_24px] opacity-[0.07] pointer-events-none" />
 
       <Container className="relative">
         <div className="mx-auto max-w-4xl text-center">
           {/* Badge: Tagline & 24 Jam */}
           <div className="inline-flex flex-wrap items-center justify-center gap-2 mb-6">
-            <Badge className="bg-amber-100 text-amber-900 border-amber-300 font-semibold px-3 py-1 text-xs">
+            <Badge variant="amber" className="font-semibold px-3 py-1 text-xs">
               <Clock className="mr-1.5 h-3.5 w-3.5 text-amber-600 inline" />
               Layanan 24 Jam
             </Badge>
-            <Badge className="bg-sky-100 text-sky-800 border-sky-200 font-semibold px-3 py-1 text-xs">
-              <MapPin className="mr-1.5 h-3.5 w-3.5 text-sky-600 inline" />
+            <Badge variant="default" className="font-semibold px-3 py-1 text-xs">
+              <MapPin className="mr-1.5 h-3.5 w-3.5 text-red-600 inline" />
               Cianjur – Jabodetabek
             </Badge>
           </div>
@@ -36,13 +36,13 @@ export function HeroSection() {
           {/* Heading */}
           <h1 className="text-3xl font-extrabold tracking-tight text-slate-900 sm:text-5xl lg:text-6xl sm:leading-tight">
             Perjalanan Aman & Nyaman Bersama{" "}
-            <span className="text-sky-600 block sm:inline">
+            <span className="text-red-600 block sm:inline">
               {siteConfig.name}
             </span>
           </h1>
 
           {/* Tagline citation & description */}
-          <p className="mt-4 text-base font-medium text-sky-800 sm:text-lg">
+          <p className="mt-4 text-base font-semibold text-red-700 sm:text-lg">
             &ldquo;{siteConfig.tagline}&rdquo;
           </p>
 
@@ -66,17 +66,17 @@ export function HeroSection() {
 
             <a
               href="#rute"
-              className="inline-flex items-center justify-center gap-2 w-full sm:w-auto rounded-xl border border-slate-300 bg-white px-7 py-3.5 text-base font-semibold text-slate-700 shadow-sm hover:bg-slate-50 transition-all"
+              className="inline-flex items-center justify-center gap-2 w-full sm:w-auto rounded-xl border border-slate-300 bg-white px-7 py-3.5 text-base font-semibold text-slate-700 shadow-sm hover:bg-slate-50 hover:border-red-200 hover:text-red-700 transition-all"
             >
-              <Car className="h-4 w-4 text-sky-600" />
+              <Car className="h-4 w-4 text-red-600" />
               <span>Cek Rute Tersedia</span>
             </a>
           </div>
 
           {/* Highlight feature bar */}
           <div className="mt-12 grid grid-cols-2 gap-3 sm:grid-cols-4 sm:gap-4 text-left">
-            <div className="rounded-xl border border-slate-200/80 bg-white/90 p-4 shadow-sm">
-              <div className="flex items-center gap-2 text-sky-700 mb-1">
+            <div className="rounded-xl border border-slate-200/80 bg-white/90 p-4 shadow-sm hover:border-red-200 transition-colors">
+              <div className="flex items-center gap-2 text-red-600 mb-1">
                 <Car className="h-4 w-4" />
                 <span className="text-xs font-bold uppercase tracking-wider">
                   Travel Rutin
@@ -87,8 +87,8 @@ export function HeroSection() {
               </p>
             </div>
 
-            <div className="rounded-xl border border-slate-200/80 bg-white/90 p-4 shadow-sm">
-              <div className="flex items-center gap-2 text-sky-700 mb-1">
+            <div className="rounded-xl border border-slate-200/80 bg-white/90 p-4 shadow-sm hover:border-red-200 transition-colors">
+              <div className="flex items-center gap-2 text-red-600 mb-1">
                 <Plane className="h-4 w-4" />
                 <span className="text-xs font-bold uppercase tracking-wider">
                   Antar Bandara
@@ -99,8 +99,8 @@ export function HeroSection() {
               </p>
             </div>
 
-            <div className="rounded-xl border border-slate-200/80 bg-white/90 p-4 shadow-sm">
-              <div className="flex items-center gap-2 text-amber-700 mb-1">
+            <div className="rounded-xl border border-slate-200/80 bg-white/90 p-4 shadow-sm hover:border-amber-200 transition-colors">
+              <div className="flex items-center gap-2 text-amber-600 mb-1">
                 <CalendarCheck className="h-4 w-4" />
                 <span className="text-xs font-bold uppercase tracking-wider">
                   Sewa & Trip
@@ -111,7 +111,7 @@ export function HeroSection() {
               </p>
             </div>
 
-            <div className="rounded-xl border border-slate-200/80 bg-white/90 p-4 shadow-sm">
+            <div className="rounded-xl border border-slate-200/80 bg-white/90 p-4 shadow-sm hover:border-emerald-200 transition-colors">
               <div className="flex items-center gap-2 text-emerald-700 mb-1">
                 <Clock className="h-4 w-4" />
                 <span className="text-xs font-bold uppercase tracking-wider">

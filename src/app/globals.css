@@ -1,13 +1,55 @@
 @import "tailwindcss";
 
 :root {
+  /* Core layout backgrounds & text */
   --background: #ffffff;
+  --background-warm: #fafaf9;
   --foreground: #0f172a;
+  --foreground-muted: #475569;
+
+  /* Primary: Bright vivid red palette */
+  --brand-red-50: #fef2f2;
+  --brand-red-100: #fee2e2;
+  --brand-red-200: #fecaca;
+  --brand-red-300: #fca5a5;
+  --brand-red-400: #f87171;
+  --brand-red-500: #ef4444;
+  --brand-red-600: #dc2626;
+  --brand-red-700: #b91c1c;
+  --brand-red-800: #991b1b;
+  --brand-red-900: #7f1d1d;
+
+  /* Secondary: Subtle warm amber/orange palette */
+  --brand-amber-50: #fffbeb;
+  --brand-amber-100: #fef3c7;
+  --brand-amber-200: #fde68a;
+  --brand-amber-500: #f59e0b;
+  --brand-amber-600: #d97706;
+  --brand-amber-700: #b45309;
+
+  /* WhatsApp emerald palette */
+  --brand-emerald-50: #ecfdf5;
+  --brand-emerald-100: #d1fae5;
+  --brand-emerald-500: #10b981;
+  --brand-emerald-600: #059669;
+  --brand-emerald-700: #047857;
+
+  /* Dark charcoal */
+  --brand-charcoal: #0f172a;
+  --brand-charcoal-muted: #334155;
 }
 
 @theme inline {
   --color-background: var(--background);
+  --color-background-warm: var(--background-warm);
   --color-foreground: var(--foreground);
+  --color-primary: var(--brand-red-600);
+  --color-primary-hover: var(--brand-red-700);
+  --color-primary-light: var(--brand-red-50);
+  --color-accent-amber: var(--brand-amber-500);
+  --color-whatsapp: var(--brand-emerald-600);
+  --color-whatsapp-hover: var(--brand-emerald-700);
+  --color-charcoal: var(--brand-charcoal);
   --font-sans: var(--font-geist-sans), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --font-mono: var(--font-geist-mono), monospace;
 }
@@ -18,4 +60,30 @@ body {
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* Subtle glossy effect utility styles */
+.glossy-red {
+  background: linear-gradient(180deg, #ef4444 0%, #dc2626 100%);
+  box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.3), 0 2px 4px 0 rgba(220, 38, 38, 0.2);
+  border-top: 1px solid rgba(255, 255, 255, 0.35);
+}
+
+.glossy-red:hover {
+  background: linear-gradient(180deg, #dc2626 0%, #b91c1c 100%);
+  box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.35), 0 4px 8px 0 rgba(220, 38, 38, 0.3);
+}
+
+.glossy-badge-red {
+  background: linear-gradient(180deg, #ffffff 0%, #fee2e2 100%);
+  border: 1px solid #fecaca;
+  color: #991b1b;
+  box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.95);
+}
+
+.glossy-badge-amber {
+  background: linear-gradient(180deg, #ffffff 0%, #fef3c7 100%);
+  border: 1px solid #fde68a;
+  color: #78350f;
+  box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.95);
 }

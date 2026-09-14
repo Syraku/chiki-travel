@@ -34,7 +34,7 @@ export function Header() {
               <span className="text-xl sm:text-2xl font-black tracking-tight text-slate-900 leading-tight">
                 {siteConfig.name}
               </span>
-              <span className="text-[11px] font-semibold text-sky-700 uppercase tracking-wider">
+              <span className="text-[11px] font-bold text-red-600 uppercase tracking-wider">
                 {siteConfig.area}
               </span>
             </div>
@@ -46,7 +46,7 @@ export function Header() {
               <a
                 key={item.href}
                 href={item.href}
-                className="text-sm font-semibold text-slate-700 hover:text-sky-600 transition-colors"
+                className="text-sm font-semibold text-slate-700 hover:text-red-600 transition-colors"
               >
                 {item.label}
               </a>
@@ -57,7 +57,7 @@ export function Header() {
           <div className="hidden sm:flex items-center gap-3">
             <a
               href={`tel:${siteConfig.contact.whatsappNumber}`}
-              className="hidden xl:inline-flex items-center gap-1.5 text-xs font-semibold text-slate-600 hover:text-sky-600 px-3 py-2"
+              className="hidden xl:inline-flex items-center gap-1.5 text-xs font-semibold text-slate-600 hover:text-red-600 px-3 py-2"
             >
               <Phone className="h-3.5 w-3.5 text-slate-400" />
               <span>{siteConfig.contact.phone}</span>
@@ -110,7 +110,7 @@ export function Header() {
                   key={item.href}
                   href={item.href}
                   onClick={() => setMobileMenuOpen(false)}
-                  className="rounded-lg px-3 py-2.5 text-sm font-semibold text-slate-700 hover:bg-sky-50 hover:text-sky-600 transition-colors"
+                  className="rounded-lg px-3 py-2.5 text-sm font-semibold text-slate-700 hover:bg-red-50 hover:text-red-600 transition-colors"
                 >
                   {item.label}
                 </a>

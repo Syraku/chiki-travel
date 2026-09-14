@@ -9,10 +9,10 @@ export function FleetSection() {
     <section id="armada" className="py-20 bg-white">
       <Container>
         <div className="mx-auto max-w-3xl text-center">
-          <div className="inline-flex items-center gap-1.5 rounded-full bg-sky-100 px-3 py-1 text-xs font-bold text-sky-800 uppercase tracking-wider mb-3">
-            <Car className="h-3.5 w-3.5" />
+          <Badge variant="default" className="inline-flex items-center gap-1.5 px-3.5 py-1 text-xs font-bold uppercase tracking-wider mb-3">
+            <Car className="h-3.5 w-3.5 text-red-600" />
             Pilihan Unit
-          </div>
+          </Badge>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-slate-900">
             Armada CHIKI TRAVEL
           </h2>
@@ -31,7 +31,7 @@ export function FleetSection() {
             return (
               <div
                 key={vehicle.id}
-                className="group flex flex-col justify-between overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-xs hover:border-sky-300 hover:shadow-md transition-all duration-200"
+                className="group flex flex-col justify-between overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-xs hover:border-red-300 hover:shadow-md transition-all duration-200"
               >
                 {/* Vehicle Image */}
                 <div className="relative aspect-[16/10] sm:aspect-[4/3] w-full overflow-hidden bg-slate-100">

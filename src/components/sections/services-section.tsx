@@ -1,5 +1,6 @@
 import { mainServices, buildServiceWhatsAppUrl } from "@/config/site";
 import { Container } from "@/components/layout/container";
+import { Badge } from "@/components/ui/badge";
 import {
   Card,
   CardHeader,
@@ -21,41 +22,41 @@ export function ServicesSection() {
   const getIcon = (iconName: string) => {
     switch (iconName) {
       case "car":
-        return <Car className="h-6 w-6 text-sky-600" />;
+        return <Car className="h-6 w-6 text-red-600" />;
       case "map":
         return <Compass className="h-6 w-6 text-emerald-600" />;
       case "key":
         return <KeyRound className="h-6 w-6 text-amber-600" />;
       case "users":
-        return <Users className="h-6 w-6 text-indigo-600" />;
+        return <Users className="h-6 w-6 text-amber-700" />;
       case "plane":
-        return <PlaneTakeoff className="h-6 w-6 text-sky-600" />;
+        return <PlaneTakeoff className="h-6 w-6 text-red-600" />;
       default:
-        return <Car className="h-6 w-6 text-sky-600" />;
+        return <Car className="h-6 w-6 text-red-600" />;
     }
   };
 
   const getAccentBg = (iconName: string) => {
     switch (iconName) {
       case "map":
-        return "bg-emerald-50 ring-emerald-200/80";
+        return "bg-gradient-to-b from-white to-emerald-50 ring-emerald-200/80 shadow-xs";
       case "key":
-        return "bg-amber-50 ring-amber-200/80";
+        return "bg-gradient-to-b from-white to-amber-50 ring-amber-200/80 shadow-xs";
       case "users":
-        return "bg-indigo-50 ring-indigo-200/80";
+        return "bg-gradient-to-b from-white to-amber-100/60 ring-amber-200/80 shadow-xs";
       default:
-        return "bg-sky-50 ring-sky-200/80";
+        return "bg-gradient-to-b from-white to-red-50 ring-red-200/80 shadow-xs";
     }
   };
 
   return (
-    <section id="layanan" className="py-20 bg-slate-50 border-y border-slate-200/60">
+    <section id="layanan" className="py-20 bg-stone-50/70 border-y border-stone-200/60">
       <Container>
         <div className="mx-auto max-w-3xl text-center">
-          <div className="inline-flex items-center gap-1.5 rounded-full bg-emerald-100 px-3 py-1 text-xs font-bold text-emerald-800 uppercase tracking-wider mb-3">
-            <Sparkles className="h-3.5 w-3.5" />
+          <Badge variant="default" className="inline-flex items-center gap-1.5 px-3.5 py-1 text-xs font-bold uppercase tracking-wider mb-3">
+            <Sparkles className="h-3.5 w-3.5 text-red-600" />
             Layanan Unggulan
-          </div>
+          </Badge>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-slate-900">
             5 Layanan Utama CHIKI TRAVEL
           </h2>
@@ -71,7 +72,7 @@ export function ServicesSection() {
             return (
               <Card
                 key={service.id}
-                className="flex flex-col justify-between border-slate-200 bg-white shadow-xs hover:border-sky-300 hover:shadow-md transition-all duration-200"
+                className="flex flex-col justify-between border-slate-200 bg-white shadow-xs hover:border-red-300 hover:shadow-md transition-all duration-200"
               >
                 <CardHeader>
                   <div

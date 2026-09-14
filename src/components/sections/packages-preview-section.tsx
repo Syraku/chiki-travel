@@ -80,7 +80,7 @@ export function PackagesPreviewSection() {
             >
               <div>
                 <div className="flex items-center justify-between gap-2 mb-3">
-                  <span className="text-[11px] font-bold uppercase tracking-wider text-sky-700">
+                  <span className="text-[11px] font-bold uppercase tracking-wider text-red-700">
                     {item.category}
                   </span>
                   <span className="inline-flex items-center gap-1 text-[11px] text-slate-500 font-medium">
@@ -125,12 +125,12 @@ export function PackagesPreviewSection() {
         </div>
 
         {/* Custom trip CTA block */}
-        <div className="mt-12 rounded-2xl bg-gradient-to-r from-sky-700 to-sky-800 text-white p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-6">
+        <div className="relative overflow-hidden mt-12 rounded-2xl bg-stone-900 border border-stone-800 text-white p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-6 shadow-md before:absolute before:inset-x-0 before:top-0 before:h-0.5 before:bg-gradient-to-r before:from-red-500 before:via-amber-500 before:to-red-600">
           <div className="space-y-1 text-center md:text-left">
             <h3 className="text-lg sm:text-xl font-bold">
               Butuh Rencana Perjalanan Wisata Khusus?
             </h3>
-            <p className="text-xs sm:text-sm text-sky-100 max-w-xl">
+            <p className="text-xs sm:text-sm text-stone-300 max-w-xl">
               Kami siap melayani kebutuhan perjalanan wisata privat, rombongan keluarga,
               maupun kegiatan dinas/instansi dari Cianjur dan Sukabumi.
             </p>
@@ -140,7 +140,7 @@ export function PackagesPreviewSection() {
             href={customTripWhatsAppUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-2 shrink-0 rounded-xl bg-emerald-500 px-6 py-3 text-sm font-bold text-white shadow hover:bg-emerald-400 transition-colors"
+            className="inline-flex items-center justify-center gap-2 shrink-0 rounded-xl bg-emerald-600 px-6 py-3 text-sm font-bold text-white shadow-sm hover:bg-emerald-700 transition-colors"
           >
             <MessageCircle className="h-4 w-4" />
             <span>Chat Rencana Wisata</span>
