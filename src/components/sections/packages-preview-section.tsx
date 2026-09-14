@@ -34,7 +34,7 @@ export function PackagesPreviewSection() {
   ];
 
   return (
-    <section id="paket-wisata" className="py-20 bg-white">
+    <section id="paket-wisata" className="py-16 sm:py-20 bg-white">
       <Container>
         <div className="mx-auto max-w-3xl text-center">
           <div className="inline-flex items-center gap-1.5 rounded-full bg-amber-100 px-3 py-1 text-xs font-bold text-amber-900 uppercase tracking-wider mb-3">
@@ -52,16 +52,16 @@ export function PackagesPreviewSection() {
         </div>
 
         {/* Informational placeholder banner */}
-        <div className="mt-10 mx-auto max-w-4xl rounded-2xl border border-dashed border-amber-300 bg-amber-50/50 p-4 sm:p-5 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
-          <div className="flex items-center gap-3">
+        <div className="mt-8 sm:mt-10 mx-auto max-w-4xl rounded-2xl border border-dashed border-amber-300 bg-amber-50/50 p-4 sm:p-5 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+          <div className="flex min-w-0 items-center gap-3">
             <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-amber-100 text-amber-700">
               <FileText className="h-5 w-5" />
             </div>
-            <div>
+            <div className="min-w-0">
               <p className="text-xs sm:text-sm font-bold text-amber-950">
                 Informasi Resmi Paket Sedang Disusun
               </p>
-              <p className="text-xs text-amber-800">
+              <p className="text-xs text-amber-800 leading-relaxed">
                 Harga resmi dan jadwal keberangkatan akan dirilis setelah diverifikasi oleh tim CHIKI TRAVEL.
               </p>
             </div>
@@ -72,18 +72,18 @@ export function PackagesPreviewSection() {
         </div>
 
         {/* Structural Placeholder Cards */}
-        <div className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="mt-8 sm:mt-10 grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6">
           {placeholderCards.map((item, idx) => (
             <div
               key={idx}
-              className="flex flex-col justify-between rounded-2xl border border-slate-200 bg-slate-50/60 p-6 transition-all hover:bg-white hover:border-slate-300 hover:shadow-sm"
+              className="flex flex-col justify-between rounded-2xl border border-slate-200 bg-slate-50/60 p-5 sm:p-6 transition-all hover:bg-white hover:border-slate-300 hover:shadow-sm"
             >
               <div>
-                <div className="flex items-center justify-between gap-2 mb-3">
+                <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
                   <span className="text-[11px] font-bold uppercase tracking-wider text-red-700">
                     {item.category}
                   </span>
-                  <span className="inline-flex items-center gap-1 text-[11px] text-slate-500 font-medium">
+                  <span className="inline-flex shrink-0 items-center gap-1 text-[11px] text-slate-500 font-medium">
                     <Clock className="h-3 w-3" />
                     Segera Hadir
                   </span>
@@ -98,12 +98,12 @@ export function PackagesPreviewSection() {
                 </p>
 
                 <div className="mt-4 pt-4 border-t border-slate-200/80 space-y-2 text-xs text-slate-500">
-                  <div className="flex items-center gap-2">
-                    <MapPin className="h-3.5 w-3.5 text-slate-400 shrink-0" />
+                  <div className="flex items-start gap-2">
+                    <MapPin className="h-3.5 w-3.5 text-slate-400 shrink-0 mt-0.5" />
                     <span>Rute: Disesuaikan dengan kebutuhan</span>
                   </div>
-                  <div className="flex items-center gap-2">
-                    <Calendar className="h-3.5 w-3.5 text-slate-400 shrink-0" />
+                  <div className="flex items-start gap-2">
+                    <Calendar className="h-3.5 w-3.5 text-slate-400 shrink-0 mt-0.5" />
                     <span>Jadwal: Reservasi h-3 atau h-7</span>
                   </div>
                 </div>
@@ -116,7 +116,7 @@ export function PackagesPreviewSection() {
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center gap-2 w-full rounded-xl bg-white border border-slate-300 py-2.5 px-3 text-xs font-bold text-slate-700 hover:bg-emerald-600 hover:border-emerald-600 hover:text-white transition-all"
                 >
-                  <MessageCircle className="h-3.5 w-3.5" />
+                  <MessageCircle className="h-3.5 w-3.5 shrink-0" />
                   <span>Konsultasi Paket Ini</span>
                 </a>
               </div>
@@ -125,12 +125,12 @@ export function PackagesPreviewSection() {
         </div>
 
         {/* Custom trip CTA block */}
-        <div className="relative overflow-hidden mt-12 rounded-2xl bg-stone-900 border border-stone-800 text-white p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-6 shadow-md before:absolute before:inset-x-0 before:top-0 before:h-0.5 before:bg-gradient-to-r before:from-red-500 before:via-amber-500 before:to-red-600">
-          <div className="space-y-1 text-center md:text-left">
+        <div className="relative overflow-hidden mt-10 sm:mt-12 rounded-2xl bg-stone-900 border border-stone-800 text-white p-5 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-5 sm:gap-6 shadow-md before:absolute before:inset-x-0 before:top-0 before:h-0.5 before:bg-gradient-to-r before:from-red-500 before:via-amber-500 before:to-red-600">
+          <div className="min-w-0 space-y-1 text-center md:text-left">
             <h3 className="text-lg sm:text-xl font-bold">
               Butuh Rencana Perjalanan Wisata Khusus?
             </h3>
-            <p className="text-xs sm:text-sm text-stone-300 max-w-xl">
+            <p className="text-xs sm:text-sm text-stone-300 max-w-xl leading-relaxed">
               Kami siap melayani kebutuhan perjalanan wisata privat, rombongan keluarga,
               maupun kegiatan dinas/instansi dari Cianjur dan Sukabumi.
             </p>
@@ -140,7 +140,7 @@ export function PackagesPreviewSection() {
             href={customTripWhatsAppUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-2 shrink-0 rounded-xl bg-emerald-600 px-6 py-3 text-sm font-bold text-white shadow-sm hover:bg-emerald-700 transition-colors"
+            className="inline-flex items-center justify-center gap-2 shrink-0 rounded-xl bg-emerald-600 px-6 py-3 text-sm font-bold text-white shadow-sm hover:bg-emerald-700 transition-colors w-full md:w-auto"
           >
             <MessageCircle className="h-4 w-4" />
             <span>Chat Rencana Wisata</span>
