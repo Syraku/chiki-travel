@@ -13,14 +13,14 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 w-full border-b border-slate-200/90 bg-white/95 backdrop-blur-md">
       <Container>
-        <div className="flex h-20 items-center justify-between">
+        <div className="flex h-16 sm:h-20 items-center justify-between gap-3">
           {/* Logo & Brand */}
           <Link
             href="/"
-            className="flex items-center gap-3 group"
+            className="flex min-w-0 items-center gap-2.5 sm:gap-3 group"
             onClick={() => setMobileMenuOpen(false)}
           >
-            <div className="relative h-12 w-12 overflow-hidden rounded-xl bg-white border border-slate-200/90 shadow-xs transition-transform group-hover:scale-105 shrink-0">
+            <div className="relative h-10 w-10 sm:h-12 sm:w-12 overflow-hidden rounded-xl bg-white border border-slate-200/90 shadow-xs transition-transform group-hover:scale-105 shrink-0">
               <Image
                 src={siteConfig.logo}
                 alt="CHIKI TRAVEL Logo"
@@ -30,11 +30,11 @@ export function Header() {
                 className="h-full w-full object-contain p-1"
               />
             </div>
-            <div className="flex flex-col">
-              <span className="text-xl sm:text-2xl font-black tracking-tight text-slate-900 leading-tight">
+            <div className="flex min-w-0 flex-col">
+              <span className="truncate text-lg sm:text-2xl font-black tracking-tight text-slate-900 leading-tight">
                 {siteConfig.name}
               </span>
-              <span className="text-[11px] font-bold text-red-600 uppercase tracking-wider">
+              <span className="truncate text-[10px] sm:text-[11px] font-bold text-red-600 uppercase tracking-wider">
                 {siteConfig.area}
               </span>
             </div>
@@ -54,7 +54,7 @@ export function Header() {
           </nav>
 
           {/* Desktop CTA Buttons */}
-          <div className="hidden sm:flex items-center gap-3">
+          <div className="hidden sm:flex items-center gap-3 shrink-0">
             <a
               href={`tel:${siteConfig.contact.whatsappNumber}`}
               className="hidden xl:inline-flex items-center gap-1.5 text-xs font-semibold text-slate-600 hover:text-red-600 px-3 py-2"
@@ -75,7 +75,7 @@ export function Header() {
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="flex items-center gap-2 lg:hidden">
+          <div className="flex items-center gap-2 lg:hidden shrink-0">
             <a
               href={siteConfig.contact.whatsappUrl}
               target="_blank"
@@ -123,10 +123,10 @@ export function Header() {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setMobileMenuOpen(false)}
-                className="flex items-center justify-center gap-2 rounded-xl bg-emerald-600 py-3 text-sm font-bold text-white shadow-sm hover:bg-emerald-700 transition-colors"
+                className="flex items-center justify-center gap-2 rounded-xl bg-emerald-600 py-3 px-3 text-sm font-bold text-white shadow-sm hover:bg-emerald-700 transition-colors"
               >
-                <MessageCircle className="h-4 w-4" />
-                <span>Chat via WhatsApp ({siteConfig.contact.phone})</span>
+                <MessageCircle className="h-4 w-4 shrink-0" />
+                <span className="text-center">Chat via WhatsApp ({siteConfig.contact.phone})</span>
               </a>
             </div>
           </div>
