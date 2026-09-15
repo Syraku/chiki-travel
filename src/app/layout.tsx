@@ -35,8 +35,8 @@ export const metadata: Metadata = {
   creator: siteConfig.name,
   metadataBase: new URL("https://chikitravel.com"),
   icons: {
-    icon: "/images/logo/wmremove-transformed.png",
-    shortcut: "/images/logo/wmremove-transformed.png",
+    icon: "/icon.svg",
+    shortcut: "/icon.svg",
     apple: "/images/logo/wmremove-transformed.png",
   },
   openGraph: {
