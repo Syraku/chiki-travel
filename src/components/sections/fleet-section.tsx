@@ -1,10 +1,14 @@
 import Image from "next/image";
 import { fleetList, buildFleetWhatsAppUrl } from "@/config/site";
+import { getFleet } from "@/sanity/lib/content";
+import { urlForImage } from "@/sanity/lib/image";
 import { Container } from "@/components/layout/container";
 import { Badge } from "@/components/ui/badge";
 import { Car, MessageCircle, Shield } from "lucide-react";
 
-export function FleetSection() {
+export async function FleetSection() {
+  const fleet = await getFleet();
+
   return (
     <section id="armada" className="py-20 bg-white">
       <Container>
@@ -23,25 +27,28 @@ export function FleetSection() {
           </p>
         </div>
 
-        {/* 6 Real Fleet Cards */}
         <div className="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-          {fleetList.map((vehicle) => {
+          {fleet.map((vehicle, index) => {
+            const fallback = fleetList.find((item) => item.name === vehicle.name) ?? fleetList[index];
+            const imageUrl = vehicle.image ? urlForImage(vehicle.image).width(1200).height(900).fit("crop").url() : fallback?.image;
             const whatsappUrl = buildFleetWhatsAppUrl(vehicle.name);
 
             return (
               <div
-                key={vehicle.id}
+                key={vehicle._id ?? vehicle.name}
                 className="group flex flex-col justify-between overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-xs hover:border-red-300 hover:shadow-md transition-all duration-200"
               >
-                {/* Vehicle Image */}
                 <div className="relative aspect-[16/10] sm:aspect-[4/3] w-full overflow-hidden bg-slate-100">
-                  <Image
-                    src={vehicle.image}
-                    alt={`Armada CHIKI TRAVEL - ${vehicle.name}`}
-                    fill
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                    className="object-cover transition-transform duration-300 group-hover:scale-105"
-                  />
+                  {imageUrl ? (
+                    <Image
+                      src={imageUrl}
+                      alt={`Armada CHIKI TRAVEL - ${vehicle.name}`}
+                      fill
+                      unoptimized={Boolean(vehicle.image)}
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      className="object-cover transition-transform duration-300 group-hover:scale-105"
+                    />
+                  ) : null}
                   <div className="absolute top-3 left-3">
                     <Badge className="bg-white/95 text-slate-800 border-slate-200/80 shadow-xs text-[11px] font-semibold backdrop-blur-xs">
                       Armada Resmi
@@ -49,7 +56,6 @@ export function FleetSection() {
                   </div>
                 </div>
 
-                {/* Vehicle Details & WhatsApp CTA */}
                 <div className="p-5 sm:p-6 flex flex-col justify-between flex-1 border-t border-slate-100">
                   <div className="mb-4">
                     <h3 className="text-xl font-bold tracking-tight text-slate-900">
@@ -57,7 +63,7 @@ export function FleetSection() {
                     </h3>
                     <p className="text-xs text-slate-500 mt-1 flex items-center gap-1.5">
                       <Shield className="h-3.5 w-3.5 text-emerald-600 shrink-0" />
-                      <span>Siap melayani perjalanan antar kota & sewa</span>
+                      <span>{vehicle.description || "Siap melayani perjalanan antar kota & sewa"}</span>
                     </p>
                   </div>
 
@@ -76,7 +82,6 @@ export function FleetSection() {
           })}
         </div>
 
-        {/* Informative Note */}
         <div className="mt-10 rounded-xl border border-slate-200 bg-slate-50 p-4 text-center text-xs text-slate-600">
           * Hubungi langsung kontak WhatsApp CHIKI TRAVEL untuk konfirmasi ketersediaan unit, kapasitas sesuai rombongan, serta estimasi penjemputan.
         </div>
