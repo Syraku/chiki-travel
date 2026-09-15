@@ -7,12 +7,15 @@ import { DestinationsPreviewSection } from "@/components/sections/destinations-p
 import { FeaturesSection } from "@/components/sections/features-section";
 import { CtaSection } from "@/components/sections/cta-section";
 import { FloatingWhatsApp } from "@/components/ui/floating-whatsapp";
+import { getRoutes } from "@/sanity/lib/content";
 
-export default function HomePage() {
+export default async function HomePage() {
+  const routes = await getRoutes();
+
   return (
     <>
       <HeroSection />
-      <QuickRouteSection />
+      <QuickRouteSection routes={routes} />
       <ServicesSection />
       <FleetSection />
       <PackagesPreviewSection />
