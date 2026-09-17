@@ -30,7 +30,12 @@ export async function FleetSection() {
         <div className="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {fleet.map((vehicle, index) => {
             const fallback = fleetList.find((item) => item.name === vehicle.name) ?? fleetList[index];
-            const imageUrl = vehicle.image ? urlForImage(vehicle.image).width(1200).height(900).fit("crop").url() : fallback?.image;
+            const imageUrl =
+              typeof vehicle.image === "string"
+                ? vehicle.image
+                : vehicle.image
+                  ? urlForImage(vehicle.image).width(1200).height(900).fit("crop").url()
+                  : fallback?.image;
             const whatsappUrl = buildFleetWhatsAppUrl(vehicle.name);
 
             return (
@@ -44,7 +49,7 @@ export async function FleetSection() {
                       src={imageUrl}
                       alt={`Armada CHIKI TRAVEL - ${vehicle.name}`}
                       fill
-                      unoptimized={Boolean(vehicle.image)}
+                      unoptimized={typeof vehicle.image !== "string" && Boolean(vehicle.image)}
                       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                       className="object-cover transition-transform duration-300 group-hover:scale-105"
                     />
