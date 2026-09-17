@@ -28,14 +28,11 @@ export function QuickRouteSection({ routes }: { routes: RouteItem[] }) {
     .filter((route) => route.origin === selectedOrigin)
     .map((route) => route.destination);
   const [selectedDestination, setSelectedDestination] = React.useState<string>(destinations[0] || "Jakarta");
+  const effectiveDestination = destinations.includes(selectedDestination)
+    ? selectedDestination
+    : destinations[0] || "Jakarta";
 
-  React.useEffect(() => {
-    if (!destinations.includes(selectedDestination)) {
-      setSelectedDestination(destinations[0] || "Jakarta");
-    }
-  }, [selectedOrigin, destinations, selectedDestination]);
-
-  const whatsappUrl = buildRouteWhatsAppUrl(selectedOrigin, selectedDestination);
+  const whatsappUrl = buildRouteWhatsAppUrl(selectedOrigin, effectiveDestination);
 
   const getDestinationIcon = (dest: string) => {
     if (dest.toLowerCase().includes("bandara")) return <Plane className="h-4 w-4 text-red-600" />;
@@ -80,7 +77,7 @@ export function QuickRouteSection({ routes }: { routes: RouteItem[] }) {
               <label className="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-2">2. Pilih Kota / Lokasi Tujuan:</label>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
                 {destinations.map((dest) => (
-                  <button key={dest} type="button" onClick={() => setSelectedDestination(dest)} className={`flex items-center gap-2 rounded-xl p-3 text-xs sm:text-sm font-semibold text-left transition-all min-w-0 ${selectedDestination === dest ? "bg-gradient-to-b from-white via-red-50 to-red-100/70 border border-red-300 text-red-950 shadow-xs ring-1 ring-red-300/60" : "bg-white border border-slate-200 text-slate-700 hover:bg-slate-50 hover:border-red-200"}`}>
+                  <button key={dest} type="button" onClick={() => setSelectedDestination(dest)} className={`flex items-center gap-2 rounded-xl p-3 text-xs sm:text-sm font-semibold text-left transition-all min-w-0 ${effectiveDestination === dest ? "bg-gradient-to-b from-white via-red-50 to-red-100/70 border border-red-300 text-red-950 shadow-xs ring-1 ring-red-300/60" : "bg-white border border-slate-200 text-slate-700 hover:bg-slate-50 hover:border-red-200"}`}>
                     {getDestinationIcon(dest)}
                     <span className="min-w-0 break-words">{dest}</span>
                   </button>
@@ -92,7 +89,7 @@ export function QuickRouteSection({ routes }: { routes: RouteItem[] }) {
               <div className="flex min-w-0 items-center gap-2 text-slate-900">
                 <span className="font-bold text-base truncate">{selectedOrigin}</span>
                 <ArrowRight className="h-4 w-4 shrink-0 text-red-600" />
-                <span className="font-bold text-base text-red-700 truncate">{selectedDestination}</span>
+                <span className="font-bold text-base text-red-700 truncate">{effectiveDestination}</span>
               </div>
               <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto shrink-0 inline-flex items-center justify-center gap-2 rounded-xl bg-emerald-600 px-5 sm:px-6 py-3 text-sm font-bold text-white shadow-sm hover:bg-emerald-700 transition-all">
                 <MessageCircle className="h-4 w-4 shrink-0" />
